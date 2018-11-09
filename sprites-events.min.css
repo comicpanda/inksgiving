@@ -1,0 +1,55 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
+
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
+```
+*/
+.sp-ev-colon-block {
+  background-image: url(./resources/images/sprites/sprites-events.1.png);
+  background-position: -182px -84px;
+  width: 12px;
+  height: 40px;
+}
+.sp-ev-inksgiving-gradient {
+  background-image: url(./resources/images/sprites/sprites-events.1.png);
+  background-position: 0px -130px;
+  width: 2px;
+  height: 320px;
+}
+.sp-ev-tapamon-inkpilgrim {
+  background-image: url(./resources/images/sprites/sprites-events.1.png);
+  background-position: 0px 0px;
+  width: 180px;
+  height: 128px;
+}
+.sp-ev-title-block {
+  background-image: url(./resources/images/sprites/sprites-events.1.png);
+  background-position: -182px 0px;
+  width: 199px;
+  height: 82px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .sp-ev-colon-block {
+    background-image: url(./resources/images/sprites/sprites-events@2x.1.png);
+    background-size: 381px 450px;
+  }
+  .sp-ev-inksgiving-gradient {
+    background-image: url(./resources/images/sprites/sprites-events@2x.1.png);
+    background-size: 381px 450px;
+  }
+  .sp-ev-tapamon-inkpilgrim {
+    background-image: url(./resources/images/sprites/sprites-events@2x.1.png);
+    background-size: 381px 450px;
+  }
+  .sp-ev-title-block {
+    background-image: url(./resources/images/sprites/sprites-events@2x.1.png);
+    background-size: 381px 450px;
+  }
+}
