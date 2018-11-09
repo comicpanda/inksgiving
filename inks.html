@@ -8,8 +8,15 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="theme-color" content="#000000">
         <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+        <link rel="stylesheet" href="sprites-events.min.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
         <style type="text/css">
-                    html, body, .root {
+          @font-face {
+            font-family: Helsinki;
+            font-weight:400;
+            src: local('Helsinki'), url('./resources/fonts/helsinki.ttf') format('truetype');
+          }
+          html, body, .root {
             min-height: 100%;
             margin: 0;
             padding: 0;
@@ -20,136 +27,214 @@
           }
           body {
             overflow-y: auto;
-            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+            font-family: 'Quicksand', sans-serif;
             font-size: 14px;
             line-height: 18px;
           }
-          section, main, nav {
-            -webkit-box-align: stretch;
-            -webkit-align-items: stretch;
-            -ms-flex-align: stretch;
-            align-items: stretch;
-            border: 0 solid #000;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            -webkit-flex-shrink: 0;
-            -ms-flex-negative: 0;
-            flex-shrink: 0;
-            margin: 0;
-            padding: 0;
-            position: relative;
+          i {
+            display: inline-block;
           }
-          .root {
-
+          header {
+            background-image: url(./resources/images/inksgiving-gradient.png);
+            background-repeat: repeat-x;
+            background-size: 2px 320px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+          }
+          .header__title-block {
+            padding-top: 30px;
+            margin: 0 auto;
+            text-align: center;
+            flex-grow: 1;
+            flex-shrink: 0;
+          }
+          .header__descs {
+            margin: 0 auto;
+            display: flex;
+            width: 100%;
+            max-width: 940px;
+            height: 48px;
+            align-items: center;
+          }
+          .header__desc {
+            flex-grow: 1;
+            flex-basis: 0;
+            height: 24px;
+            color: #868696;
+            font-family: Helsinki;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+          }
+          .header__counter {
+            margin: 0 auto;
+            display: flex;
+            width: 100%;
+            max-width: 940px;
+            align-items: center;
+          }
+          .header__counter-number {
+            flex-grow: 1;
+            flex-basis: 0;
+            color: #FFFFFF;
+            font-family: Helsinki;
+            font-size: 120px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 15px;
           }
           .section {
-            min-height: 100%;
-            overflow: hidden;
+            background-color: #f6f6f6;
+            padding-bottom: 60px;
           }
           .main {
-            background-color: #fafafa;
-            -webkit-box-flex: 1;
-            -webkit-flex-grow: 1;
-            -ms-flex-positive: 1;
-            flex-grow: 1;
-            -webkit-order: 1;
-            -ms-flex-order: 1;
-            order: 1;
-          }
-          .nav {
-            -webkit-box-ordinal-group: 1;
-            -webkit-order: 0;
-            -ms-flex-order: 0;
-            order: 0;
-          }
-          .nav .logo {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            margin: 5px auto;
-          }
-          .inner-main {
-            margin: 0 auto 30px;
-            max-width: 930px;
+            height: 100%;
             width: 100%;
+            max-width: 940px;
+            margin: 60px auto;
+            color: #464656;
+            padding: 0 20px;
+            box-sizing: border-box;
           }
-          .items {
-            flex: 0 0 auto;
-            flex-wrap: wrap;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-
+          .main p {
+            margin: 0;
           }
-          .item {
-            padding: 5px;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
+          .main a {
+            color: #F6B606;
+            text-decoration: none;
           }
-          .item a {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            width: 300px;
-            height: 300px;
-            background-color: #efefef;
+          .main__how-box {
+            margin: 0 auto;
+            border: 1px solid #D6D6D6;
+            border-radius: 4px;
+            background-color: #FFFFFF;
+            font-size: 16px;
+            line-height: 24px;
+            padding: 24px;
+            position: relative;
           }
-          .item img {
-            background-position: center center;
-            background-size: cover;
+          .main__how-box h5 {
+            font-size: 20px;
+            margin: 40px 0 12px;
+          }
+          .main__how-box h5.nm {
+            margin-top: 0;
+          }
+          .main__hero {
             width: 100%;
+            max-width: 572px;
+            font-size: 20px;
+            line-height: 28px;
+            margin-bottom: 40px !important;
           }
-          @media screen and (max-width: 930px) {
-            .inner-main {
-              max-width: 620px;
-            }
+          .main__tapamon {
+            position: absolute;
+            right: 0;
+            top: -108px;
           }
-          @media screen and (max-width: 620px) {
-            .inner-main {
-              max-width: 310px;
-            }
+          .empty {
+            line-height: 36px;
           }
-
         </style>
+        <script type="text/javascript">
+          //https://codeburst.io/a-countdown-timer-in-pure-javascript-f3cdaae1a1a3
+          function countdown(endDate) {
+            var days, hours, minutes, seconds;
+
+            endDate = new Date(endDate).getTime();
+
+            if (isNaN(endDate)) {
+              return;
+            }
+
+            setInterval(calculate, 1000);
+
+            function calculate() {
+              var startDate = new Date();
+              startDate = startDate.getTime();
+
+              var timeRemaining = parseInt((endDate - startDate) / 1000);
+
+              if (timeRemaining >= 0) {
+                days = parseInt(timeRemaining / 86400);
+                timeRemaining = (timeRemaining % 86400);
+
+                hours = parseInt(timeRemaining / 3600);
+                timeRemaining = (timeRemaining % 3600);
+
+                minutes = parseInt(timeRemaining / 60);
+                timeRemaining = (timeRemaining % 60);
+
+                seconds = parseInt(timeRemaining);
+
+                document.getElementById("days").innerHTML = parseInt(days, 10);
+                document.getElementById("hours").innerHTML = ("0" + hours).slice(-2);
+                document.getElementById("minutes").innerHTML = ("0" + minutes).slice(-2);
+                document.getElementById("seconds").innerHTML = ("0" + seconds).slice(-2);
+              } else {
+                return;
+              }
+            }
+          }
+
+          (function () {
+            countdown(Date.UTC('2018', '10', '20', '8', '0','0'));
+          }());
+        </script>
   </head>
   <body>
     <div class="root">
       <section class="section">
         <header class="header">
-          <div>
-          <div class="header__counter">
-
+          <div class="header__title-block">
+            <i class="sp-ev-title-block"></i>
           </div>
-          <div>
-            <span>days</span>
-            <span>hours</span>
-            <span>minutes</span>
-            <span>seconds</span>
+          <div class="header__counter">
+            <span class="header__counter-number" id="days">00</span>
+            <span class="header__coutner-dot"><i class="sp-ev-colon-block"></i></span>
+            <span class="header__counter-number" id="hours">00</span>
+            <span class="header__coutner-dot"><i class="sp-ev-colon-block"></i></span>
+            <span class="header__counter-number" id="minutes">00</span>
+            <span class="header__coutner-dot"><i class="sp-ev-colon-block"></i></span>
+            <span class="header__counter-number" id="seconds">00</span>
+          </div>
+          <div class="header__descs">
+            <span class="header__desc">days</span>
+            <span class="header__desc">hours</span>
+            <span class="header__desc">minutes</span>
+            <span class="header__desc">seconds</span>
           </div>
         </header>
         <main class="main">
-          <div class="inner-main">
+          <p class="main__hero">Help creators reach <b>15 millions drops of ink</b> in total support during Inksgiving – the Tapas giving event that gives back.</p>
+          <div class="main__how-box">
+            <div class="main__tapamon">
+              <i class="sp-ev-tapamon-inkpilgrim"></i>
+            </div>
+            <h5 class="nm">How it works</h5>
+            <p>For 48 hours starting November 20 at 12:00 AM until November 21 at 11:59 PM (PST), every drop of Ink given to any creator on Tapas will contribute to the overall goal. The more total support given during Inksgiving, the more supporters will get back as bonus Ink the following month.</p>
+            <p class="empty">&nbsp;</p>
+            <p>If we reach 5 million drops, fans will receive 5% of the amount they gave back; if we reach 10 million, they’ll get 15% back. Our ultimate goal is 15 million drops of Ink – if we achieve that, supporters will receive a whopping 25% of their contribution back as bonus Ink after 30 days.</p>
+
+            <h5>What can fans do?</h5>
+            <p>Buy or earn some Ink in the Tapas app or on tapas.io, then start deciding which creators you want to support (we know, it’s hard to choose).</p>
+            <p class="empty">&nbsp;</p>
+            <p>We’ll be running a special discount on one of our Ink packs during the Inksgiving event, so don’t forget to check the shop then, too.</p>
+
+            <h5>What should creators do?</h5>
+            <p>Spread the word (and rally your supporters), in an episode explaining how to give support, a post on your wall, or through social media (#inksgiving).</p>
+            <p class="empty">&nbsp;</p>
+            <p>If you create an episode for your Ink Support program or the Inksgiving event, send <a href="mailto:priscillatov@tapasmedia.co"><b>Priscilla</b></a> a link so we can promote it in an upcoming collection.</p>
+
+            <h5>What happens next?</h5>
+            <p>Inksgiving officially kicks off at midnight on November 20th (PST). Besides supporting your favorite creators, you can check this page to track the progress toward our goal.</p>
+            <p class="empty">&nbsp;</p>
+            <p>For more details, check out the <a href="https://tapas.io/newsfeed/32"><b>Inksgiving announcement</b></a> in our newsfeed.</p>
           </div>
         </main>
+        <p></p>
       </section>
     </div>
-    <script type="text/javascript">
-      elItems = document.getElementsByClassName('items');
-      loadData();
-    </script>
   </body>
 </html>
