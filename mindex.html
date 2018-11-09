@@ -21,7 +21,6 @@
             margin: 0;
             padding: 0;
             border: 0;
-            min-width: 640px;
           }
           html {
             vertical-align: baseline;
@@ -44,7 +43,7 @@
             flex-direction: column;
           }
           .header__title-block {
-            padding-top: 30px;
+            padding-top: 80px;
             margin: 0 auto;
             text-align: center;
             flex-grow: 1;
@@ -64,7 +63,7 @@
             height: 24px;
             color: #868696;
             font-family: Helsinki;
-            font-size: 20px;
+            font-size: 14px;
             line-height: 24px;
             text-align: center;
           }
@@ -81,7 +80,7 @@
             flex-basis: 0;
             color: #FFFFFF;
             font-family: Helsinki;
-            font-size: 120px;
+            font-size: 50px;
             line-height: 1;
             text-align: center;
           }
@@ -93,12 +92,10 @@
             height: 100%;
             width: 100%;
             max-width: 940px;
-            margin: 60px auto;
+            margin: 0 auto 24px;
             color: #464656;
-            padding: 0 20px;
-            box-sizing: border-box;
           }
-          p {
+          .main p {
             margin: 0;
           }
           .main a {
@@ -107,8 +104,8 @@
           }
           .main__how-box {
             margin: 0 auto;
-            border: 1px solid #D6D6D6;
-            border-radius: 4px;
+            border-top: 1px solid #D6D6D6;
+            border-bottom: 1px solid #D6D6D6;
             background-color: #FFFFFF;
             font-size: 16px;
             line-height: 24px;
@@ -123,27 +120,23 @@
           }
           .main__hero {
             width: 100%;
-            display: flex;
-            margin-bottom: -20px;
-            align-items: center;
-            justify-content: space-between;
-          }
-          .main__hero-txt {
-            flex-grow: 1;
             font-size: 20px;
             line-height: 28px;
-            margin-top: -20px;
-            max-width: 600px;
+            padding: 24px;
+            box-sizing: border-box;
           }
-          .main__hero-tapamon {
-            flex-grow: 0;
-            text-align: right;
+          .main__tapamon {
+            margin-bottom: -20px;
+            text-align: center;
           }
           .empty {
             line-height: 36px;
           }
           i {
             vertical-align: middle;
+          }
+          .header__coutner-dot i {
+            transform: scale(0.5);
           }
         </style>
         <script type="text/javascript">
@@ -216,12 +209,8 @@
           </div>
         </header>
         <main class="main">
-          <div class="main__hero">
-            <p class="main__hero-txt">Help creators reach <b>15 millions drops of ink</b> in total support during Inksgiving – the Tapas giving event that gives back.</p>
-            <div class="main__hero-tapamon">
-              <i class="sp-ev-tapamon-inkpilgrim"></i>
-            </div>
-          </div>
+          <p class="main__hero">Help creators reach <b>15 millions drops of ink</b> in total support during Inksgiving – the Tapas giving event that gives back.</p>
+          <div class="main__tapamon"><i class="sp-ev-tapamon-inkpilgrim"></i></div>
           <div class="main__how-box">
             <h5 class="nm">How it works</h5>
             <p>For 48 hours starting November 20 at 12:00 AM until November 21 at 11:59 PM (PST), every drop of Ink given to any creator on Tapas will contribute to the overall goal. The more total support given during Inksgiving, the more supporters will get back as bonus Ink the following month.</p>
@@ -244,6 +233,7 @@
             <p>For more details, check out the <a href="https://tapas.io/newsfeed/32"><b>Inksgiving announcement</b></a> in our newsfeed.</p>
           </div>
         </main>
+        <p></p>
       </section>
     </div>
   </body>
