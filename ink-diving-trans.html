@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Inksgiving - Tapas</title>
+        <meta name="robots" content="noimageindex, noarchive">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="theme-color" content="#000000">
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+        <style type="text/css">
+          .loading {
+            width: 540px;
+            height: 1080px;
+            position: relative;
+            overflow: hidden;
+          }
+          .loading:before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1000%;
+            height: 700%;
+            z-index: -1;
+            background-image: url("./resources/images/ink-diving.png");
+            animation: playX 1s steps(10) infinite;
+                       /*playY 3.5s steps(7) infinite;*/
+          }
+          @keyframes playX {
+            from {
+              transform: translateX(0);
+            }
+            to {
+              transform: translateX(-5400px);
+            }
+          }
+          @keyframes playY {
+            from {
+              transform: translate(0, 0);
+            }
+            to {
+              transform: translate(-5400px, -7560px);
+            }
+          }
+        </style>
+  </head>
+  <body>
+    <div class="loading"></div>
+  </body>
+</html>

@@ -8,27 +8,156 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="theme-color" content="#000000">
         <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
         <style type="text/css">
-          .loading{
-            width: 540px;
-            height: 1080px;
-            background-image: url("./resources/images/ink-diving.png");
-            background-position-x: 0px;
-            background-position-y: 0px;
-            animation: playX 0.4s steps(11) infinite,
-                       playY 2.8s steps(7) infinite;
+        @font-face {
+          font-family: Sarastic;
+          font-weight:400;
+          src: local('Sarastic'), url('./resources/fonts/Sarcastic-Regular.ttf') format('truetype');
+        }
+        p {
+          font-family: Sarastic;
+        }
+        .frame {
+          margin: 48px auto;
+          position: relative;
+          width: 500px;
+          height: 448px;
+          top: 270px;
+        }
+        .overflow {
+          overflow: hidden;
+        }
+        .t-dive {
+          position: absolute;
+          right: 27px;
+          bottom: 139px;
+          transition: bottom 1.5s cubic-bezier(0.18, 0.89, 0.32, 1.28) 0s;
+        }
+        .t-diving {
+          bottom: -90px;
+        }
+        .t-text {
+          position: absolute;
+          left: -8px;
+          top: 7px;
+          z-index: 10;
+          cursor: pointer;
+        }
+        .t-see {
+          position: absolute;
+          bottom: 5px;
+          right: 1px;
+          z-index: 100;
+          opacity: 1;
+          transition: opacity 1s cubic-bezier(0.18, 0.89, 0.32, 1.28) 0.5s;
+
+        }
+        .t-bg {
+          position: absolute;
+          bottom: 0;
+          opacity: 0.5;
+        }
+        @keyframes swing {
+          15% {
+            transform: rotate3d(0, 0, 1, 15deg);
           }
-          @keyframes playX {
-            from {background-position-x: 0px;}
-            to {background-position-x: -5940px;}
+
+          30% {
+            transform: rotate3d(0, 0, 1, -10deg);
           }
-          @keyframes playY {
-            from {background-position-y: 0px;}
-            to {background-position-y: -7560px;}
+
+          45% {
+            transform: rotate3d(0, 0, 1, 5deg);
           }
-        </style>
+
+          60% {
+            transform: rotate3d(0, 0, 1, -5deg);
+          }
+
+          75%, 100% {
+            transform: rotate3d(0, 0, 1, 0deg);
+          }
+        }
+
+        .swing {
+          transform-origin: top center;
+          animation-name: swing;
+          animation-duration: 1.5s;
+          animation-delay: 1s;
+          animation-iteration-count: infinite;
+        }
+
+        @keyframes rotateOutDownLeft {
+          from {
+            transform-origin: left bottom;
+            opacity: 1;
+          }
+
+          to {
+            transform-origin: left bottom;
+            transform: rotate3d(0, 0, 1, 45deg);
+            opacity: 0;
+          }
+        }
+
+        .rotateOutDownLeft {
+          animation-name: rotateOutDownLeft;
+          animation-duration: 1s;
+        }
+
+        .hidden {
+          display: none;
+        }
+        .white {
+          background-color: #FFF;
+          width: 100%;
+          height: 100px;
+          bottom: 0;
+          position: absolute;
+        }
+
+        .fadeOut {
+          opacity: 0;
+        }
+        .txt {
+          font-size: 140px;
+          margin: auto 0;
+          text-align: center;
+          color: white ;
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fcb614, 0 0 30px #fcb614, 0 0 40px #fcb614, 0 0 55px #fcb614, 0 0 75px #fcb614;
+        }
+        body {
+          background-image: url(resources/images/bg.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+
+        }
+    </style>
   </head>
   <body>
-    <div class="loading"></div>
+    <div style="">
+      <div class="frame">
+        <img class="t-dive js-img" src="resources/images/t-dive.png" width="132">
+        <img class="t-text swing js-img" src="resources/images/ink-text.png" width="450" onclick="a()">
+        <div class="white js-img"></div>
+        <img class="t-see js-img" src="resources/images/inksea.png" width="500">
+        <!-- <img class="t-bg" src="resources/images/ink-dive-ink.png" width="500"> -->
+        <p class="txt hidden">inkredible!</p>
+      </div>
+    </div>
+      <script type="text/javascript">
+        function a() {
+          $('.t-text').removeClass('swing').addClass('rotateOutDownLeft');
+          $('.frame').addClass('overflow');
+          $('.t-dive').addClass('t-diving');
+          $('.t-see').addClass('fadeOut');
+        }
+
+        $('.t-text').on('animationend', function() {
+          $('.js-img').addClass('hidden');
+          $('.txt').removeClass('hidden');
+        });
+      </script>
   </body>
 </html>
